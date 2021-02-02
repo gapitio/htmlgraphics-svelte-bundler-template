@@ -12,6 +12,8 @@ Bundler to make developing code easier and scalable.
 
 ## Contains
 
+- [Svelte](https://svelte.dev/)
+- [Sass](https://sass-lang.com/)
 - [rollup.js](https://rollupjs.org/)
 - [Prettier](https://prettier.io/)
 - [TypeScript](https://www.typescriptlang.org/)
