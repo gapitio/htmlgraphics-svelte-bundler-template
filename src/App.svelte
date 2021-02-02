@@ -34,13 +34,14 @@
   {/each}
 </main>
 
-<style>
+<style type="text/scss">
+  $color: #ff3e00;
   main {
     text-align: center;
   }
 
   h1 {
-    color: #ff3e00;
+    color: $color;
     font-weight: 400;
   }
 </style>
