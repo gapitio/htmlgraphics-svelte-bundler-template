@@ -2,7 +2,7 @@ import { writeFileSync, readFileSync } from "fs";
 import panelOptionsConfig from "../panel-options.config.js";
 
 const IN_PATHS = {
-  htmlNode: "dist/svg-data.svg",
+  css: "dist/bundle.css",
   onRender: "dist/on-render.js",
   onInit: "dist/on-init.js",
   codeData: "dist/custom-properties.json",

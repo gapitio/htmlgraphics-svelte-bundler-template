@@ -4,7 +4,7 @@ function createSeries(name: string, value: number, refId = "A"): DataFrame {
     fields: [
       {
         name: "Time",
-        type: FieldType.time,
+        type: "time",
         config: {},
         values: {
           length: 0,
@@ -20,7 +20,7 @@ function createSeries(name: string, value: number, refId = "A"): DataFrame {
       },
       {
         name: "Value",
-        type: FieldType.number,
+        type: "number",
         config: {},
         values: {
           length: 0,

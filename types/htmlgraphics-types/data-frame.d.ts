@@ -12,14 +12,13 @@ interface QueryResultBase {
   meta?: { [key: string]: any };
 }
 
-declare const enum FieldType {
-  time = "time",
-  number = "number",
-  string = "string",
-  boolean = "boolean",
-  trace = "trace",
-  other = "other",
-}
+declare type FieldType =
+  | "time"
+  | "number"
+  | "string"
+  | "boolean"
+  | "trace"
+  | "other";
 
 declare const enum NullValueMode {
   Null = "null",

@@ -1,11 +1,10 @@
 {
+  "extends": "@tsconfig/svelte/tsconfig.json",
+
   "include": ["./src/**/*", "./types"],
+  "exclude": ["node_modules/*", "public/*", "dist/*"],
   "compilerOptions": {
-    "moduleResolution": "node",
-    "module": "ESNext",
-    "sourceMap": true,
-    "target": "ESNext",
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "isolatedModules": false
   }
 }

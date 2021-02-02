@@ -1,13 +1,12 @@
 /**
  * Represent panel data loading state.
  */
-declare const enum LoadingState {
-  NotStarted = "NotStarted",
-  Loading = "Loading",
-  Streaming = "Streaming",
-  Done = "Done",
-  Error = "Error",
-}
+declare type LoadingState =
+  | "NotStarted"
+  | "Loading"
+  | "Streaming"
+  | "Done"
+  | "Error";
 
 interface DataQueryTimings {
   dataProcessingTime: number;

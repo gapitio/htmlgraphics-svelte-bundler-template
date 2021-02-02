@@ -1,10 +1,11 @@
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import typescript from "rollup-plugin-typescript2";
+import typescript from "@rollup/plugin-typescript";
 import livereload from "rollup-plugin-livereload";
-import svgo from "rollup-plugin-svgo";
-import svgoConfig from "./svgo.config";
 import json from "@rollup/plugin-json";
+import svelte from "rollup-plugin-svelte";
+import sveltePreprocess from "svelte-preprocess";
+import css from "rollup-plugin-css-only";
 
 const OUT_DIR = "public/build";
 
@@ -20,14 +21,10 @@ export default [
       clearScreen: false,
     },
     plugins: [
-      svgo(svgoConfig),
       json({
         preferConst: true,
       }),
-      typescript({
-        check: false,
-        tsconfig: "./tsconfig.json",
-      }),
+      typescript(),
       nodeResolve({
         browser: true,
       }),
@@ -40,13 +37,20 @@ export default [
       dir: OUT_DIR,
       format: "iife",
       sourcemap: true,
+      name: "app",
     },
     plugins: [
-      typescript({
-        check: false,
+      svelte({
+        compilerOptions: {
+          dev: true,
+        },
+        preprocess: sveltePreprocess(),
       }),
+      css({ output: "bundle.css" }),
+      typescript(),
       nodeResolve({
         browser: true,
+        dedupe: ["svelte"],
       }),
       commonjs(),
     ],
@@ -59,9 +63,7 @@ export default [
       sourcemap: true,
     },
     plugins: [
-      typescript({
-        check: false,
-      }),
+      typescript(),
       nodeResolve({
         browser: true,
       }),

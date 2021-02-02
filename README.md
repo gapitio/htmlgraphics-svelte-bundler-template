@@ -2,8 +2,6 @@
 
 Bundler to make developing code easier and scalable.
 
-There is no weird code styles, because most of the configuration is as basic as it can be. A good example of this is by looking at the `.prettierrc.json` file.
-
 ## Table of contents
 
 - [Bundler](#bundler)
@@ -35,7 +33,7 @@ Then you start the development script
 npm run dev
 ```
 
-Go to <http://localhost:5000>. Change some code in `./src/on-init.ts`, `./src/on-render.ts`, and `./src/design/svg-data-inkscape.svg`, and the website will update.
+Go to <http://localhost:5000>. Change some code in `App.svelte` and the website will update.
 
 When the code is ready to be uploaded to Grafana, start the build script
 

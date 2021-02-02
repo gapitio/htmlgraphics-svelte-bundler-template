@@ -6,7 +6,7 @@ function randomValue({ min = 0, max = 1 }): number {
 
 function updateData(): void {
   window.data = {
-    state: LoadingState.Done,
+    state: "Done",
     series: [
       createSeries("random-series-1", randomValue({ min: 0, max: 100 })),
       createSeries("random-series-2", randomValue({ min: -100, max: 100 })),
