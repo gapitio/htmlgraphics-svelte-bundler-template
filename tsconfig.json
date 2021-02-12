@@ -1,11 +1,9 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
 
-  "include": ["src", "types"],
+  "include": ["./src/**/*", "./types"],
+  "exclude": ["node_modules/*", "public/*", "dist/*"],
   "compilerOptions": {
-    "rootDir": "./src",
-    "baseUrl": "./src",
-    "typeRoots": ["./node_modules/@types"],
     "resolveJsonModule": true,
     "isolatedModules": false
   }
