@@ -1,10 +1,10 @@
 import { writeFileSync, readFileSync } from "fs";
-import panelOptionsConfig from "../panel-options.config.mjs";
+import panelOptionsConfig from "../panelOptions.config";
 
 const IN_PATHS = {
   css: "dist/bundle.css",
-  onRender: "dist/on-render.js",
-  onInit: "dist/on-init.js",
+  onRender: "dist/onRender.js",
+  onInit: "dist/onInit.js",
   codeData: "dist/custom-properties.json",
 };
 
