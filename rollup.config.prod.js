@@ -8,6 +8,7 @@ import { terser } from "rollup-plugin-terser";
 
 const OUT_DIR = "dist";
 
+// eslint-disable-next-line import/no-default-export
 export default [
   {
     input: "src/onInit.ts",

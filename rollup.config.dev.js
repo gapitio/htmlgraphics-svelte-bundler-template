@@ -9,6 +9,7 @@ import css from "rollup-plugin-css-only";
 
 const OUT_DIR = "public/build";
 
+// eslint-disable-next-line import/no-default-export
 export default [
   {
     input: "src/devSite/index.ts",
