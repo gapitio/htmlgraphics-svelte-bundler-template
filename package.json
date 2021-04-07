@@ -4,10 +4,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "run-s validate build:prod build:custom-properties build:svg-data build:panel-options",
+    "build": "run-s validate build:prod build:custom-properties build:panel-options",
     "build:custom-properties": "node --experimental-json-modules ./scripts/customProperties.js",
     "build:dev": "rollup -c rollup.config.dev.js",
-    "build:svg-data": "node ./scripts/svgData.js",
     "build:prod": "rollup -c rollup.config.prod.js ",
     "build:panel-options": "node ./scripts/panelOptions.js",
     "dev": "run-p watch serve:dev",
