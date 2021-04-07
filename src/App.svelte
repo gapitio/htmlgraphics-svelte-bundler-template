@@ -11,7 +11,7 @@
       return {
         name,
         value:
-          value === undefined
+          value === null
             ? "No data"
             : `${Number(value).toFixed(decimals)} ${baseUnit}`,
       };
