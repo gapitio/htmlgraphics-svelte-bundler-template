@@ -35,3 +35,5 @@ window.theme = {
 };
 
 themeHandler();
+
+export {};
