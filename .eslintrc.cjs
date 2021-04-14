@@ -70,6 +70,19 @@ module.exports = {
     "no-dupe-else-if": "error",
 
     "@typescript-eslint/consistent-type-imports": "error",
+
+    // Disable "slow" rules
+    // https://github.com/sveltejs/eslint-plugin-svelte3/issues/92
+    "import/extensions": "off",
+    "import/named": "off",
+    "import/no-cycle": "off",
+    "import/no-duplicates": "off",
+    "import/no-named-as-default-member": "off",
+    "import/no-named-as-default": "off",
+    "import/no-self-import": "off",
+    "import/no-unresolved": "off",
+    "import/no-useless-path-segments": "off",
+    "import/order": "off",
   },
   overrides: [
     {
