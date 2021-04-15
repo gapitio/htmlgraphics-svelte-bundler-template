@@ -5,7 +5,7 @@ export const defaultPanelOptions = {
   SVGBaseFix: true,
   codeData: "{}",
   css: "",
-  html: "",
+  html: "<div></div>",
   onRender: "",
   dynamicData: false,
   onInit: "",
