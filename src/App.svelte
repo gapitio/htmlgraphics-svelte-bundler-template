@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
-  import { metricValues } from "./stores";
   import { getMetricValue } from "@gapit/grafana-metric";
+  import { metricValues } from "./stores";
 
   function getValues() {
     return customProperties.values.map((valueDict) => {
@@ -11,7 +11,7 @@
       return {
         name,
         value:
-          value == null
+          value === null
             ? "No data"
             : `${Number(value).toFixed(decimals)} ${baseUnit}`,
       };

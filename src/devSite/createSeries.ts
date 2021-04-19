@@ -1,36 +1,47 @@
-function createSeries(name: string, value: number, refId = "A"): DataFrame {
+import type { DataFrame } from "@grafana/data";
+
+enum FieldType {
+  time = "time",
+  number = "number",
+  string = "string",
+  boolean = "boolean",
+  trace = "trace",
+  other = "other",
+}
+
+export function createSeries(
+  name: string,
+  value: number,
+  refId = "A"
+): DataFrame {
   return {
-    name: name,
+    name,
     fields: [
       {
         name: "Time",
-        type: "time",
+        type: FieldType.time,
         config: {},
         values: {
           length: 0,
-          get: (index) => {
-            return [][index];
-          },
+          get: (index) => [][index],
           toArray: () => [],
         },
         state: {
-          displayName: null,
+          displayName: undefined,
           scopedVars: {},
         },
       },
       {
         name: "Value",
-        type: "number",
+        type: FieldType.number,
         config: {},
         values: {
           length: 0,
-          get: (index) => {
-            return [][index];
-          },
+          get: (index) => [][index],
           toArray: () => [],
         },
         state: {
-          displayName: null,
+          displayName: undefined,
           scopedVars: {},
           calcs: {
             allIsNull: false,
@@ -56,9 +67,7 @@ function createSeries(name: string, value: number, refId = "A"): DataFrame {
       },
     ],
     length: 1,
-    refId: refId,
+    refId,
     meta: undefined,
   };
 }
-
-export default createSeries;
