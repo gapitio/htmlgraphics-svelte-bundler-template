@@ -1,12 +1,11 @@
-/* eslint-disable no-console */
 import { existsSync, readFileSync, writeFileSync } from "fs";
-// eslint-disable-next-line import/extensions
 import { defaultPanelOptions } from "../panelOptions.config.js";
 
 const INDENT = 2;
 
 const IN_PATHS = {
-  css: "dist/bundle.css",
+  css: "dist/style.css",
+  html: "dist/html.html",
   onRender: "dist/onRender.js",
   onInit: "dist/onInit.js",
   codeData: "dist/custom-properties.json",
@@ -35,4 +34,3 @@ function exportPanelOptions() {
 }
 
 exportPanelOptions();
-/* eslint-enable no-console */

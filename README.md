@@ -2,23 +2,13 @@
 
 Bundler to make developing code easier and scalable.
 
-## Table of contents
-
-- [Bundler](#bundler)
-  - [Table of contents](#table-of-contents)
-  - [Contains](#contains)
-  - [Usage](#usage)
-  - [Dev site](#dev-site)
-
 ## Contains
 
 - [Svelte](https://svelte.dev/)
-- [Sass](https://sass-lang.com/)
 - [rollup.js](https://rollupjs.org/)
 - [Prettier](https://prettier.io/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [ESLint](https://eslint.org/)
-- [SVGO](https://github.com/svg/svgo)
 - Local development server to run the code live in the browser.
 
 ## Usage
@@ -47,8 +37,8 @@ Then go to `/dist` and copy the content of `panel-options.json` to the panels `I
 
 ## Dev site
 
-`src/dev-site` is a folder where most of the configuration for the dev website is.
+`src/devSite` is a folder where most of the configuration for the dev website is.
 
-To add custom series go to `src/dev-site/data.ts` and add createSeries() in series.
+To add custom series go to `src/devSite/data.ts` and add createSeries() in series.
 
 Window has been used to get global variables like data, customProperties, ETC.

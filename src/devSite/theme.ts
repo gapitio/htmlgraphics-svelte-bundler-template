@@ -35,5 +35,3 @@ window.theme = {
 };
 
 themeHandler();
-
-export {};

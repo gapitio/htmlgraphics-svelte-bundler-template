@@ -1,40 +1,11 @@
 /*
-  Loads on-render and executes it each time the refresh button is pressed
+  Loads onRender and executes it each time the refresh button is pressed
 */
 
 import { updateData } from "./data";
 
-async function makeRequest(url: string) {
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    const message = `An error has occurred: ${response.status}`;
-    throw new Error(message);
-  }
-
-  const result = await response.text();
-  return result;
-}
-
-async function getOnRenderFunction() {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  const ON_RENDER_PATH = "./build/onRender.js";
-  const SOURCE_MAP_PATH = `${ON_RENDER_PATH}.map`;
-
-  // Get the onRender code
-  const onRenderResponse = await makeRequest(ON_RENDER_PATH);
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval
-  const onRender = new Function(
-    `${onRenderResponse}\n//# sourceMappingURL=${SOURCE_MAP_PATH}`
-  );
-
-  return onRender;
-}
-
-async function renderHandler() {
+function renderHandler() {
   updateData();
-
-  const onRender = await getOnRenderFunction();
 
   const refreshButton = document.querySelector("#refresh-button");
   if (!refreshButton) throw new Error("Could not find refresh button.");
@@ -46,24 +17,30 @@ async function renderHandler() {
     htmlNode.dispatchEvent(panelUpdateEvent);
   });
 
+  if (!refreshButton) throw new Error("Could not find refresh button.");
+
   refreshButton.addEventListener("click", () => {
     updateData();
+
+    const onRenderUrl = "/src/onRender.ts";
     htmlNode.dispatchEvent(panelUpdateEvent);
     htmlNode.onpanelupdate();
 
-    if (!refreshButton.classList.contains("executed")) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        "Executing onRender through a Function object. Line numbers might be inaccurate."
-      );
+    const script = document.querySelector<HTMLScriptElement>(
+      `script[src^="${onRenderUrl}"`
+    );
 
-      refreshButton.classList.add("executed");
-    }
+    const t = Number.parseInt(script?.src.split("/src/onRender.ts?")[1] ?? "");
+    const currentI = Number.isNaN(t) ? 0 : t + 1;
 
-    onRender();
+    if (script) script.remove();
+
+    const newScript = document.createElement("script");
+    newScript.type = "module";
+    newScript.src = `${onRenderUrl}?${currentI}`;
+    newScript.defer = true;
+    document.head.append(newScript);
   });
 }
 
-renderHandler().catch((error) => {
-  throw new Error(error);
-});
+renderHandler();

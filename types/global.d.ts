@@ -1,3 +1,5 @@
+/// <reference types="svelte" />
+
 import type { PanelData } from "@grafana/data";
 import type { OptionsInterface } from "./htmlgraphicsTypes/options";
 import type customPropertiesJSON from "../src/custom-properties.json";

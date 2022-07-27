@@ -1,25 +1,10 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
-  import { getMetricValue } from "@gapit/grafana-metric";
-  import { metricValues } from "./stores";
 
-  function getValues() {
-    return customProperties.values.map((valueDict) => {
-      const { name, metricName, decimals, baseUnit } = valueDict;
-      const value = getMetricValue(metricName);
-
-      return {
-        name,
-        value:
-          value === null
-            ? "No data"
-            : `${Number(value).toFixed(decimals)} ${baseUnit}`,
-      };
-    });
-  }
+  let htmlGraphicsData = data;
 
   function onPanelUpdate() {
-    metricValues.update(() => getValues());
+    htmlGraphicsData = data;
   }
 
   htmlNode.addEventListener("panelupdate", onPanelUpdate);
@@ -29,19 +14,11 @@
 </script>
 
 <main>
-  {#each Object.values($metricValues) as { name, value }}
-    <h1>{name}: {value}</h1>
-  {/each}
+  Value: {htmlGraphicsData.series[0]?.fields[1]?.state?.calcs?.last}
 </main>
 
-<style type="text/scss">
-  $color: #ff3e00;
+<style lang="css">
   main {
     text-align: center;
-  }
-
-  h1 {
-    color: $color;
-    font-weight: 400;
   }
 </style>
