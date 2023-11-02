@@ -1,0 +1,22 @@
+{
+  "panels": [
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "gridPos": {
+        "h": 34,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {},
+      "title": "Panel Title",
+      "type": "gapit-htmlgraphics-panel"
+    }
+  ],
+  "title": "New dashboard",
+  "uid": "c9833241-ba3e-46d6-a0a0-75071898d0ff"
+}
